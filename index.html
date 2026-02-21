@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Prompts de IA para Manutenção — Supervisores e Técnicos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F5620F;
+    --orange-dark: #C94A08;
+    --orange-light: #FF8A4C;
+    --yellow: #FFB800;
+    --dark: #0D0D0D;
+    --dark2: #161616;
+    --dark3: #1F1F1F;
+    --dark4: #2A2A2A;
+    --steel: #3A3A3A;
+    --muted: #888;
+    --light: #E8E8E8;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(245,98,15,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(245,98,15,0.15);
+    border: 1px solid rgba(245,98,15,0.4);
+    color: var(--orange-light);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 9vw, 96px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+
+  .hero h1 .accent { color: var(--orange); }
+  .hero h1 .sub-line {
+    display: block;
+    font-size: clamp(28px, 5vw, 54px);
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 8px;
+  }
+
+  .hero-desc {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: #aaa;
+    max-width: 620px;
+    line-height: 1.6;
+    margin-top: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.45s forwards;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .hero-cta {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.55s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+  }
+
+  .price-hint {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .price-hint strong { color: var(--yellow); }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--steel), transparent);
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  /* ─── PROBLEM ─── */
+  .section {
+    padding: 96px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    max-width: 700px;
+  }
+
+  .section-title .dim { color: var(--muted); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .problem-card {
+    background: var(--dark2);
+    padding: 32px;
+    border-left: 3px solid var(--steel);
+    transition: border-color 0.2s;
+  }
+
+  .problem-card:hover { border-color: var(--orange); }
+
+  .problem-card .icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .problem-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .problem-card p {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  /* ─── SOLUTION ─── */
+  .solution-section {
+    background: var(--dark2);
+    padding: 96px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution-section::before {
+    content: '';
+    position: absolute;
+    right: -200px; top: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(245,98,15,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .solution-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .solution-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .solution-intro { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .solution-copy p {
+    font-size: 17px;
+    color: #bbb;
+    line-height: 1.75;
+    margin-top: 24px;
+  }
+
+  .solution-copy p strong { color: var(--white); }
+
+  .highlight-box {
+    background: rgba(245,98,15,0.08);
+    border: 1px solid rgba(245,98,15,0.25);
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  .highlight-box .big-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .highlight-box .big-label {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .highlight-box .separator {
+    height: 1px;
+    background: rgba(245,98,15,0.2);
+    margin: 24px 0;
+  }
+
+  /* ─── MODULES ─── */
+  .modules-section {
+    padding: 96px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .module-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark4);
+    border-radius: 4px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .module-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+  }
+
+  .module-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .module-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .module-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .module-card ul li {
+    font-size: 14px;
+    color: #999;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .module-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 12px;
+  }
+
+  /* ─── FOR WHOM ─── */
+  .forwhom-section {
+    background: var(--dark2);
+    padding: 96px 24px;
+  }
+
+  .forwhom-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .persona-card {
+    background: var(--dark3);
+    padding: 36px 28px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .persona-card:hover { background: var(--dark4); }
+
+  .persona-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .persona-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .persona-card p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-section {
+    padding: 96px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 64px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 28px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--orange), var(--dark));
+  }
+
+  .step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 0 0 48px 0;
+    text-align: left;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-top: 12px;
+  }
+
+  .step-content p {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.65;
+    max-width: 580px;
+  }
+
+  /* ─── SAMPLE PROMPT ─── */
+  .sample-section {
+    background: var(--dark2);
+    padding: 96px 24px;
+  }
+
+  .sample-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .prompt-preview {
+    background: var(--dark);
+    border: 1px solid var(--dark4);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .prompt-header {
+    background: var(--dark3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--dark4);
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FFBD2E; }
+  .dot-g { background: #28CA41; }
+
+  .prompt-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 8px;
+  }
+
+  .prompt-body {
+    padding: 32px;
+  }
+
+  .prompt-block {
+    margin-bottom: 24px;
+  }
+
+  .prompt-block:last-child { margin-bottom: 0; }
+
+  .prompt-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(245,98,15,0.1);
+    border: 1px solid rgba(245,98,15,0.2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  .prompt-text {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.7;
+  }
+
+  .prompt-text .fill {
+    background: rgba(255,184,0,0.12);
+    border-bottom: 1px dashed var(--yellow);
+    color: var(--yellow);
+    padding: 0 4px;
+  }
+
+  /* ─── GUARANTEE ─── */
+  .guarantee-section {
+    padding: 72px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .guarantee-badge {
+    width: 96px; height: 96px;
+    background: rgba(245,98,15,0.1);
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 32px;
+  }
+
+  .guarantee-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .guarantee-section p {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.7;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-section {
+    background: var(--dark2);
+    padding: 96px 24px;
+    text-align: center;
+  }
+
+  .price-card {
+    max-width: 480px;
+    margin: 56px auto 0;
+    background: var(--dark);
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--orange-dark), var(--orange-light));
+  }
+
+  .price-ribbon {
+    position: absolute;
+    top: 20px; right: -30px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 40px;
+    transform: rotate(30deg);
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .price-old {
+    font-size: 18px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .price-current {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .price-current .currency {
+    font-size: 32px;
+    vertical-align: super;
+    color: var(--orange);
+  }
+
+  .price-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 4px;
+    margin-bottom: 32px;
+  }
+
+  .price-includes {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .price-includes li {
+    font-size: 15px;
+    color: #ccc;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .price-includes li .check {
+    color: var(--orange);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .btn-buy {
+    display: block;
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    text-align: center;
+  }
+
+  .btn-buy:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+  }
+
+  .security-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    padding: 96px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--dark4);
+    padding: 24px 0;
+  }
+
+  .faq-question {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-question:hover { color: var(--orange-light); }
+
+  .faq-toggle {
+    color: var(--orange);
+    font-size: 22px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    user-select: none;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+  }
+
+  .faq-answer.open {
+    max-height: 300px;
+    padding-top: 16px;
+  }
+
+  .faq-toggle.open { transform: rotate(45deg); }
+
+  /* ─── CTA FINAL ─── */
+  .cta-final {
+    background: var(--dark2);
+    padding: 96px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: -150px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,98,15,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-final h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .cta-final h2 span { color: var(--orange); }
+
+  .cta-final p {
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 40px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--dark4);
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--steel);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .hero-stats { gap: 24px; }
+    .stat-num { font-size: 36px; }
+    .price-card { padding: 36px 24px; }
+    .price-current { font-size: 56px; }
+    .steps::before { left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="badge">🔧 Novo infoproduto para manutenção</div>
+  <h1>
+    <span class="accent">30 Prompts de IA</span><br>
+    para Gestão de<br>
+    <span class="accent">Manutenção</span>
+    <span class="sub-line">Feito para quem está no campo, não na teoria.</span>
+  </h1>
+  <p class="hero-desc">
+    Comandos prontos para usar no ChatGPT ou Claude que economizam horas do seu dia — de diagnóstico técnico a relatórios para a diretoria.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Prompts prontos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Módulos temáticos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">&lt;5min</div>
+      <div class="stat-label">Para usar cada prompt</div>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="#pricing" class="btn-primary">Quero os 30 prompts agora →</a>
+    <span class="price-hint">Por apenas <strong>R$ 47</strong> — acesso imediato</span>
+  </div>
+</section>
+
+<!-- ─── PROBLEM ─── -->
+<section class="section reveal">
+  <div class="section-label">O problema</div>
+  <h2 class="section-title">
+    Você gerencia gente, máquina e pressão<br>
+    <span class="dim">ao mesmo tempo. Todo dia.</span>
+  </h2>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <span class="icon">⏱️</span>
+      <h3>Sem tempo para documentar</h3>
+      <p>O dia voa entre chamados, reuniões e cobranças. Relatórios e procedimentos ficam sempre para depois.</p>
+    </div>
+    <div class="problem-card">
+      <span class="icon">🔄</span>
+      <h3>Mesmos problemas voltando</h3>
+      <p>Falha recorrente, técnico sem diagnóstico claro, corretiva que virou rotina. E o sistema de OS cheio.</p>
+    </div>
+    <div class="problem-card">
+      <span class="icon">📋</span>
+      <h3>Linguagem técnica × gestão</h3>
+      <p>Você sabe o que precisa ser feito, mas justificar para a diretoria em "linguagem de negócio" é outro jogo.</p>
+    </div>
+    <div class="problem-card">
+      <span class="icon">🧑‍🔧</span>
+      <h3>Equipe que precisa de direção</h3>
+      <p>Briefing vago, feedback difícil, técnico novo sem roteiro. O supervisor vira o gargalo da operação.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SOLUTION ─── -->
+<section class="solution-section">
+  <div class="solution-inner">
+    <div class="solution-intro reveal">
+      <div class="solution-copy">
+        <div class="section-label">A solução</div>
+        <h2 class="section-title">IA como seu assistente técnico, disponível 24h</h2>
+        <p>
+          O ChatGPT e o Claude são ferramentas poderosas — mas <strong>só funcionam bem quando você sabe exatamente como perguntar.</strong> A maioria das pessoas digita uma frase genérica e recebe uma resposta genérica.
+        </p>
+        <p>
+          Esses 30 prompts foram desenhados por quem entende de <strong>manutenção industrial e facilities</strong>. Cada prompt usa o formato RTF (Rule → Task → Format) para entregar respostas precisas, aplicáveis e prontas para uso real — não respostas de manual.
+        </p>
+      </div>
+      <div class="highlight-box">
+        <div class="big-text">RTF</div>
+        <div class="big-label">Formato profissional de engenharia de prompt:<br><strong>Rule · Task · Format</strong></div>
+        <div class="separator"></div>
+        <div class="big-text" style="font-size:32px; color: var(--white);">Rule</div>
+        <div class="big-label">Define o papel e o contexto da IA</div>
+        <div style="margin-top:12px">
+        <div class="big-text" style="font-size:32px; color: var(--white);">Task</div>
+        <div class="big-label">Instrui a tarefa com detalhes específicos</div>
+        </div>
+        <div style="margin-top:12px">
+        <div class="big-text" style="font-size:32px; color: var(--white);">Format</div>
+        <div class="big-label">Determina exatamente como a resposta deve sair</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MODULES ─── -->
+<section class="modules-section">
+  <div class="reveal">
+    <div class="section-label">O que está incluso</div>
+    <h2 class="section-title">7 módulos,<br><span class="dim">30 prompts prontos</span></h2>
+  </div>
+  <div class="modules-grid">
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 01</div>
+      <h3>Planejamento &amp; Priorização</h3>
+      <ul>
+        <li>Triagem de OS por criticidade</li>
+        <li>Plano diário de equipe</li>
+        <li>Identificação de gargalos na fila</li>
+        <li>Programação de preventivas</li>
+        <li>Estimativa de backlog</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 02</div>
+      <h3>Diagnóstico Técnico</h3>
+      <ul>
+        <li>Diagnóstico guiado de HVAC</li>
+        <li>Análise de falha recorrente (RCA)</li>
+        <li>Diagnóstico elétrico em quadros</li>
+        <li>Comissionamento pós-manutenção</li>
+        <li>Ruídos e vibrações em rotativos</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 03</div>
+      <h3>Gestão de Equipe</h3>
+      <ul>
+        <li>Briefing diário estruturado</li>
+        <li>Feedback para técnico (modelo SBI)</li>
+        <li>Comunicado para lojistas</li>
+        <li>Relatório de ocorrência</li>
+        <li>Treinamento on-the-job</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 04</div>
+      <h3>Controle &amp; Indicadores</h3>
+      <ul>
+        <li>Análise de KPIs (MTBF, MTTR…)</li>
+        <li>Justificativa de custo para gestão</li>
+        <li>Auditoria de efetividade das preventivas</li>
+        <li>Controle de estoque de peças críticas</li>
+        <li>Relatório executivo mensal</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 05</div>
+      <h3>Segurança &amp; Conformidade</h3>
+      <ul>
+        <li>APR para serviços não-rotineiros</li>
+        <li>Checklist LOTO completo</li>
+        <li>Investigação de quase-acidente</li>
+        <li>Protocolo de resposta a emergência</li>
+        <li>Checklist de inspeção de segurança</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 06</div>
+      <h3>Contratos &amp; Fornecedores</h3>
+      <ul>
+        <li>Avaliação de proposta terceirizada</li>
+        <li>Briefing técnico para fornecedor</li>
+        <li>Acompanhamento de serviço em campo</li>
+      </ul>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">Módulo 07</div>
+      <h3>Melhoria Contínua</h3>
+      <ul>
+        <li>Elaboração de POP (Procedimento Padrão)</li>
+        <li>Plano 90 dias para redução de corretivas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SAMPLE PROMPT ─── -->
+<section class="sample-section">
+  <div class="sample-inner reveal">
+    <div class="section-label">Exemplo real</div>
+    <h2 class="section-title" style="max-width:600px">Veja como funciona um prompt na prática</h2>
+
+    <div class="prompt-preview">
+      <div class="prompt-header">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span class="prompt-title">Prompt #06 — Diagnóstico HVAC</span>
+      </div>
+      <div class="prompt-body">
+        <div class="prompt-block">
+          <span class="prompt-tag">Rule</span>
+          <p class="prompt-text">Você é um técnico sênior de HVAC com 15 anos de experiência em shoppings. Raciocine de forma sistemática: do mais simples para o mais complexo. Nunca pule etapas de verificação básica.</p>
+        </div>
+        <div class="prompt-block">
+          <span class="prompt-tag">Task</span>
+          <p class="prompt-text">Meu técnico está atendendo um ar-condicionado com os seguintes sintomas: <span class="fill">[descreva o sintoma]</span>. Guie-o passo a passo no diagnóstico. Equipamento: <span class="fill">[marca, modelo, capacidade]</span>.</p>
+        </div>
+        <div class="prompt-block">
+          <span class="prompt-tag">Format</span>
+          <p class="prompt-text">Liste as etapas numeradas. Para cada etapa: O que verificar | Como verificar | O que o resultado indica | Próximo passo. Finalize com as 3 causas mais prováveis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOR WHOM ─── -->
+<section class="forwhom-section">
+  <div class="forwhom-inner">
+    <div class="section-label reveal">Para quem é</div>
+    <h2 class="section-title reveal">Se você trabalha com manutenção,<br><span class="dim">é para você.</span></h2>
+    <div class="personas-grid">
+      <div class="persona-card reveal">
+        <span class="persona-icon">👷</span>
+        <h3>Supervisor de Campo</h3>
+        <p>Que gerencia equipe, OS e pressão ao mesmo tempo e precisa de mais agilidade no dia a dia.</p>
+      </div>
+      <div class="persona-card reveal">
+        <span class="persona-icon">⚙️</span>
+        <h3>Técnico de Manutenção</h3>
+        <p>Que quer um atalho inteligente para diagnósticos difíceis e procedimentos bem estruturados.</p>
+      </div>
+      <div class="persona-card reveal">
+        <span class="persona-icon">🏢</span>
+        <h3>Coordenador de Facilities</h3>
+        <p>Que precisa se comunicar com a gestão em linguagem de negócio e manter indicadores saudáveis.</p>
+      </div>
+      <div class="persona-card reveal">
+        <span class="persona-icon">🔌</span>
+        <h3>Eletricista / Técnico Especialista</h3>
+        <p>Que quer padronizar seus procedimentos e criar documentação técnica de forma rápida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="how-section reveal">
+  <div class="section-label">Como usar</div>
+  <h2 class="section-title" style="margin:0 auto; text-align:center">Em 3 passos você já está usando</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Compre e baixe o arquivo</h3>
+        <p>Acesso imediato após o pagamento. Você recebe um arquivo PDF + Markdown com todos os 30 prompts organizados por módulo e com guia de uso rápido.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Escolha o prompt certo para o momento</h3>
+        <p>Use o índice temático para encontrar o prompt ideal em segundos — seja para distribuir tarefas no início do turno, diagnosticar uma falha ou escrever um relatório.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Cole no ChatGPT ou Claude, preencha os dados reais</h3>
+        <p>Substitua os campos em [colchetes] pelos dados do seu equipamento, equipe ou situação. Em menos de 5 minutos você tem uma resposta técnica e aplicável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GUARANTEE ─── -->
+<section class="guarantee-section reveal">
+  <div class="guarantee-badge">🛡️</div>
+  <h2>Garantia de 7 dias</h2>
+  <p>Se você comprar, aplicar qualquer um dos prompts e achar que não valeu o investimento, devolvemos 100% do seu dinheiro. Sem perguntas. Sem burocracia. O risco é nosso.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── PRICING ─── -->
+<section class="pricing-section" id="pricing">
+  <div class="reveal">
+    <div class="section-label">Investimento</div>
+    <h2 class="section-title" style="margin:0 auto; text-align:center; max-width:600px">Menos que um almoço.<br><span class="dim">Mais horas no seu mês.</span></h2>
+  </div>
+
+  <div class="price-card reveal">
+    <div class="price-ribbon">Oferta</div>
+    <div class="product-name">30 Prompts de IA para Manutenção</div>
+    <div class="price-old">R$ 97,00</div>
+    <div class="price-current"><span class="currency">R$</span> 47</div>
+    <div class="price-sub">pagamento único · acesso imediato e vitalício</div>
+
+    <ul class="price-includes">
+      <li><span class="check">✓</span> 30 prompts no formato RTF (Rule · Task · Format)</li>
+      <li><span class="check">✓</span> 7 módulos organizados por situação</li>
+      <li><span class="check">✓</span> Guia de uso rápido com índice por situação</li>
+      <li><span class="check">✓</span> Compatível com ChatGPT e Claude</li>
+      <li><span class="check">✓</span> Arquivo PDF + Markdown prontos para usar</li>
+      <li><span class="check">✓</span> Atualizações futuras inclusas</li>
+    </ul>
+
+    <a href="#" class="btn-buy">Comprar agora por R$ 47 →</a>
+    <div class="security-note">🔒 Pagamento seguro via Hotmart · Cartão, Pix ou Boleto</div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section">
+  <div class="reveal">
+    <div class="section-label">Dúvidas frequentes</div>
+    <h2 class="section-title">Perguntas</h2>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Preciso ser expert em IA para usar?
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Não. Se você sabe copiar e colar texto, consegue usar. O prompt já vem pronto — você só preenche os dados reais do seu contexto (equipamento, equipe, situação) e obtém a resposta.
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Funciona com ChatGPT gratuito?
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Sim. Todos os prompts foram testados com ChatGPT 3.5 (gratuito), GPT-4 e Claude. Funcionam em qualquer uma dessas plataformas, sem custo adicional de ferramentas.
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Os prompts servem para indústria ou só shopping?
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Os prompts foram desenhados com foco em shoppings centers e facilities prediais, mas a lógica técnica se aplica a qualquer ambiente industrial: fábricas, condomínios logísticos, hospitais, escolas e similares.
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Como recebo o produto após a compra?
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      O acesso é imediato. Assim que o pagamento for confirmado, você recebe o link para download por e-mail e pela plataforma Hotmart. O arquivo fica disponível para sempre na sua conta.
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      E se eu não gostar?
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Você tem 7 dias de garantia incondicional. Basta solicitar o reembolso pela plataforma Hotmart e o valor é devolvido integralmente. Sem questionamentos.
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─── -->
+<section class="cta-final">
+  <h2 class="reveal">Seu próximo turno<br>começa <span>mais fácil.</span></h2>
+  <p class="reveal">30 prompts. 7 módulos. Acesso imediato.</p>
+  <a href="#pricing" class="btn-primary reveal">Quero os 30 prompts por R$ 47 →</a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>© 2025 · Prompts de IA para Manutenção · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const toggle = el.querySelector('.faq-toggle');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-toggle').forEach(t => t.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      toggle.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
